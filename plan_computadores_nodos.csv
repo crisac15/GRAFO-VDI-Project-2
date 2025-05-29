@@ -1,0 +1,59 @@
+sigla,nombre,bloque,horas,creditos,area
+CI0205,PRUEBA AVANZADA INGLÉS,0,0,0,Escuela de Ciencias del Lenguaje
+MA0101,MATEMÁTICA GENERAL,0,5,2,Escuela de Matemáticas
+CE1101,INTRODUCCIÓN A LA PROGRAMACIÓN,1,9,3,Escuela de Ingeniería en Computadores
+CE1104,FUNDAMENTOS DE SISTEMAS COMPUTACIONALES,1,9,3,Escuela de Ingeniería en Computadores
+MA1102,CÁLCULO DIFERENCIAL E INTEGRAL,1,5,4,Escuela de Matemáticas
+MA1403,MATEMÁTICA DISCRETA,1,4,4,Escuela de Matemáticas
+QU1102,LABORATORIO DE QUÍMICA BÁSICA I,1,2,1,Escuela de Química
+QU1100,QUÍMICA BÁSICA I,1,4,3,Escuela de Química
+SE1100,ACTIVIDAD CULTURAL I,1,2,0,Escuela de Cultura y Deporte
+SE1200,ACTIVIDAD DEPORTIVA I,1,2,0,Escuela de Cultura y Deporte
+CE1103,ALGORITMOS Y ESTRUCTURAS DE DATOS I,2,12,4,Escuela de Ingeniería en Computadores
+CE1105,PRINCIPIOS DE MODELADO EN INGENIERÍA,2,9,3,Escuela de Ingeniería en Computadores
+CI1403,COMUNICACIÓN TÉCNICA,2,4,2,Escuela de Ciencias del Lenguaje
+CS1502,INTRODUCCIÓN A LA TÉCNICA CIENCIA Y TECNOLOGÍA,2,2,1,Escuela de Ciencias Sociales
+FI1101,FÍSICA GENERAL I,2,4,3,Escuela de Física
+FI1201,LABORATORIO FÍSICA GENERAL I,2,2,1,Escuela de Física
+MA1103,CÁLCULO Y ÁLGEBRA LINEAL,2,4,4,Escuela de Matemáticas
+SE1400,ACTIVIDAD CULTURAL-DEPORTIVA,2,2,0,Escuela de Cultura y Deporte
+CE2103,ALGORITMOS Y ESTRUCTURAS DE DATOS II,3,12,4,Escuela de Ingeniería en Computadores
+CS2101,AMBIENTE HUMANO,3,6,2,Escuela de Ciencias Sociales
+EL2113,CIRCUITOS ELÉCTRICOS EN CORRIENTE CONTINUA,3,4,4,Escuela de Electrónica
+FH1000,CENTROS DE FORMACIÓN HUMANÍSTICA,3,2,0,Formación Humanística
+FI1102,FÍSICA GENERAL II,3,4,3,Escuela de Física
+FI1202,LABORATORIO FÍSICA GENERAL II,3,2,1,Escuela de Física
+MA2104,CÁLCULO SUPERIOR,3,4,4,Escuela de Matemáticas
+CE1106,PARADIGMAS DE PROGRAMACIÓN,4,9,3,Escuela de Ingeniería en Computadores
+CE2201,LABORATORIO DE CIRCUITOS ELÉCTRICOS,4,3,1,Escuela de Ingeniería en Computadores
+EL2114,CIRCUITOS ELÉCTRICOS EN CORRIENTE ALTERNA,4,4,4,Escuela de Electrónica
+EL2207,ELEMENTOS ACTIVOS,4,4,4,Escuela de Electrónica
+PI2609,PROBABILIDAD Y ESTADÍSTICA,4,3,2,Escuela de Ingeniería en Producción Industrial
+SO4604,SEGURIDAD Y SALUD OCUPACIONAL,4,3,3,Escuela de Ingeniería en Seguridad Laboral e Higiene Ambiental
+CE1107,FUNDAMENTOS DE ARQUITECTURA DE COMPUTADORES,5,12,4,Escuela de Ingeniería en Computadores
+CE3101,BASES DE DATOS,5,12,4,Escuela de Ingeniería en Computadores
+CE3201,TALLER DE DISEÑO DIGITAL,5,6,2,Escuela de Ingeniería en Computadores
+MA2105,ECUACIONES DIFERENCIALES,5,4,4,Escuela de Matemáticas
+PI5516,INGENIERÍA ECONÓMICA,5,4,3,Escuela de Ingeniería en Producción Industrial
+CE1108,COMPILADORES E INTÉRPRETES,6,12,4,Escuela de Ingeniería en Computadores
+CE1109,CIRCUITOS ANALÓGICOS,6,12,4,Escuela de Ingeniería en Computadores
+CE1110,ANÁLISIS DE SEÑALES MIXTAS,6,12,4,Escuela de Ingeniería en Computadores
+CE4301,ARQUITECTURA DE COMPUTADORES I,6,12,4,Escuela de Ingeniería en Computadores
+CI3203,INGLÉS ESPECIALIZADO PARA INGENIERÍAS EN COMPUTADORES,6,6,2,Escuela de Ciencias del Lenguaje
+CE1111,ANÁLISIS NUMÉRICO PARA LA INGENIERÍA,7,9,3,Escuela de Ingeniería en Computadores
+CE1112,TALLER DE SEÑALES MIXTAS,7,9,3,Escuela de Ingeniería en Computadores
+CE1116,DISEÑO Y CALIDAD EN PRODUCTOS TECNOLÓGICOS,7,12,4,Escuela de Ingeniería en Computadores
+CE4302,ARQUITECTURA DE COMPUTADORES II,7,12,4,Escuela de Ingeniería en Computadores
+CE4303,PRINCIPIOS DE SISTEMAS OPERATIVOS,7,12,4,Escuela de Ingeniería en Computadores
+AE4208,DESARROLLO DE EMPRENDEDORES,8,4,4,Escuela de Administración de Empresas
+CE1113,SISTEMAS EMPOTRADOS,8,9,3,Escuela de Ingeniería en Computadores
+CE5301,REDES DE COMPUTADORES,8,12,4,Escuela de Ingeniería en Computadores
+CE5701,ELECTIVA I,8,9,3,Escuela de Ingeniería en Computadores
+CS3404,SEMINARIO DE ÉTICA PARA LA INGENIERÍA,8,5,2,Escuela de Ciencias Sociales
+CE1114,PROYECTO DE APLICACIÓN DE LA INGENIERÍA EN COMPUTADORES,9,12,4,Escuela de Ingeniería en Computadores
+CE1115,SEGURIDAD DE LA INFORMACIÓN,9,9,3,Escuela de Ingeniería en Computadores
+CE1117,FORMULACIÓN Y GESTIÓN DE PROYECTOS,9,9,3,Escuela de Ingeniería en Computadores
+CE5801,ELECTIVA II,9,9,3,Escuela de Ingeniería en Computadores
+CE5901,ELECTIVA III,9,9,3,Escuela de Ingeniería en Computadores
+CS4402,SEMINARIO DE ESTUDIOS COSTARRICENSES,9,3,2,Escuela de Ciencias Sociales
+CE5601,TRABAJO FINAL DE GRADUACIÓN,10,36,12,Escuela de Ingeniería en Computadores

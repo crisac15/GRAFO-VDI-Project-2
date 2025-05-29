@@ -1,0 +1,76 @@
+---
+title: "Visualización de Requisitos y Correquisitos"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(visNetwork)
+library(dplyr)
+library(readr)
+library(RColorBrewer)
+```
+
+## R Markdown
+
+```{r}
+nodos <- read_csv("plan_computadores_nodos.csv", show_col_types = FALSE)
+aristas <- read_csv("plan_computadores_aristas.csv", show_col_types = FALSE)
+
+nodos$area <- factor(nodos$area)
+area_colores <- brewer.pal(length(levels(nodos$area)), "Set3")
+names(area_colores) <- levels(nodos$area)
+
+vis_nodos <- nodos %>%
+  mutate(id = sigla,
+         label = sigla,
+         title = paste0("<b>", nombre, "</b><br>",
+                        "Bloque: ", bloque, "<br>",
+                        "Horas: ", horas, "<br>",
+                        "Créditos: ", creditos, "<br>",
+                        "Área: ", area),
+         color.background = area_colores[area],
+         color.border = "black",
+         size = 10 + creditos * 2,  # tamaño según créditos
+         shape = "dot")
+```
+
+## R Markdown
+
+```{r}
+# Diferenciar requisitos y correquisitos
+# Para requisitos: arista dirigida (arrows)
+# Para correquisitos: arista sin flechas y color diferente
+
+vis_aristas <- aristas %>%
+  mutate(arrows = ifelse(tipo == "requisito", "to", ""),
+         color = ifelse(tipo == "requisito", "black", "blue"),
+         width = ifelse(tipo == "requisito", 2, 1.5),
+         dashes = ifelse(tipo == "correquisito", TRUE, FALSE),
+         smooth = ifelse(tipo == "correquisito", list(enabled = TRUE, type = "curvedCW"), FALSE))
+```
+
+## R Markdown
+
+```{r}
+visNetwork(vis_nodos, vis_aristas, height = "800px", width = "100%") %>%
+  visNodes(font = list(size = 16)) %>%
+  visEdges(arrows = vis_aristas$arrows,
+           color = vis_aristas$color,
+           width = vis_aristas$width,
+           dashes = vis_aristas$dashes,
+           smooth = vis_aristas$smooth) %>%
+  visOptions(highlightNearest = list(enabled = TRUE, degree = 1, hover = TRUE),
+             nodesIdSelection = list(enabled = TRUE, useLabels = TRUE),
+             selectedBy = list(variable = "area", style = "width: 200px; height: 100px;")) %>%
+  visInteraction(navigationButtons = TRUE) %>%
+  visLayout(randomSeed = 123, improvedLayout = TRUE, hierarchical = FALSE) %>%
+  visLegend(addNodes = data.frame(label = names(area_colores),
+                                  color = area_colores,
+                                  shape = rep("dot", length(area_colores)),
+                                  size = rep(15, length(area_colores))),
+            position = "right",
+            useGroups = FALSE,
+            main = "Áreas disciplinarias",
+            width = 0.2)
+
+```
