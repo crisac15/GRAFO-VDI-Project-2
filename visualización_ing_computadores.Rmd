@@ -1,7 +1,35 @@
 ---
-title: "Visualización de Requisitos y Correquisitos"
+title: "Plan de Estudios de Lic. en Ing. Computadores - TEC"
 output: html_document
 ---
+
+## 1. Identificación de la Carrera
+
+### Ingeniería en Computadores
+
+**Descripción de la Carrera:**
+
+Ingeniería en Computadores (Computer Engineering o C.E.), tiene su fundamento en ciencias y tecnologías que permiten el diseño, construcción, implementación y mantenimiento de componentes de sistemas computacionales tanto en hardware como software. Tradicionalmente, Ingeniería en Computadores (C.E.), se ha considerado como una combinación de las Ciencias de la Computación e Ingeniería Electrónica.
+
+Esta ingeniería participa en proyectos de desarrollo de sistemas computacionales y equipo controlado por computadores.
+
+**Campo de Trabajo:**
+
+Los(as) graduados(as) de la carrera de Ingeniería en Computadores, laborarán en empresas e instituciones que diseñen, verifiquen, validen o desarrollen hardware y software de sistemas electrónicos computacionales, como por ejemplo: empresas que fabriquen o prueben circuitos integrados, realicen dispositivos complejos que requieren controles electrónicos, elaboren equipo con interfaces humano-máquina, desarrollen circuitos integrados para soluciones empotradas, software para simulación, software de aplicaciones científicas basadas en modelos matemáticos complejos, entre otros.
+
+En la actualidad, la lista de empresas que contratan al egresado(a) de la carrera Ingeniería en Computadores incluye a: Componentes Intel, Avionyx, RidgeRun, HPE Costa Rica, Teradyne, Xeltron, CeNAT, o iniciativas de emprendedurismo como: Alt+Q Software, Tecnologías Elyptik, entre otras. El mercado laboral está en crecimiento y la disponibilidad de profesionales en el área potenciará su consolidación.
+
+**Importancia de la Carrera:**
+
+Costa Rica se encuentra inmerso en un proceso de desarrollo, que atrae al país inversión extranjera y propicia la generación de empresas nacionales en diversas áreas de tecnología aplicada, incluyendo computación, electrónica y su combinación (Ingeniería en Computadores, C.E.). Quienes se gradúen de la carrera de Ingeniería en Computadores (C.E.), serán partícipes activos del sector productivo, teniendo impacto directo en la sociedad.
+
+------------------------------------------------------------------------
+
+## 2. Visualización de los Cursos de la Carrera
+
+### Grafo de cursos y sus relaciones
+
+A continuación, se presenta la visualización interactiva de los cursos que conforman la carrera de **Ingeniería en Computadores**, junto con las relaciones de requisitos y correquisitos entre ellos.De esta manera obtenemos algunos beneficios como una comprensión más clara mediante exploración dinámica entre la estructura curricular, posibilidad de seleccionar nodos por área, identificación fácil de dependencias y flujos de trabajo dentro del plan de estudios, detección de cuellos de botella y mejora de la carga académica, lo que resulta en una herramienta útil para tomar decisiones informadas sobre el itinerario académico.
 
 ```{r setup, include=FALSE}
 library(visNetwork)
@@ -9,22 +37,20 @@ library(dplyr)
 library(readr)
 ```
 
-## R Markdown
 
-```{r}
+```{r, include=FALSE}
 # Leer nodos (cursos) y aristas (relaciones)
 nodos <- read_csv("plan_computadores_nodos.csv")
 aristas <- read_csv("plan_computadores_aristas.csv")
 
 # Asignar un ID numérico único a cada curso
-nodos$id <- 1:nrow(nodos)
+nodos$id <- nodos$sigla  # Asegurándonos que el ID sea la sigla del curso
 sigla_to_id <- setNames(nodos$id, nodos$sigla)
 
 ```
 
-## R Markdown
 
-```{r}
+```{r, include=FALSE}
 # Requisitos: aristas dirigidas
 dirigidas <- aristas %>%
   filter(tipo == "requisito") %>%
@@ -47,32 +73,38 @@ aristas_final <- bind_rows(dirigidas, correquisitos)
 
 ```
 
-## R Markdown
-```{r}
+
+```{r, include=FALSE}
 nodos_vis <- nodos %>%
-  rename(label = sigla) %>%
   mutate(
-    title = paste(label, "-", nombre),
-    value = horas,                # Tamaño proporcional a cantidad de horas
+    label = nombre,  # Mostrar el nombre del curso como label
+    title = paste(label, "-", sigla),  # Título con el nombre y sigla
+    value = horas,                # Tamaño proporcional a la cantidad de horas
     group = area,                 # Grupo por área disciplinaria
     shape = ifelse(creditos >= 4, "box", "ellipse")  # Forma según créditos
   )
 
 ```
 
-## R Markdown
-
-```{r}
+```{r, echo = FALSE}
 visNetwork(nodos_vis, aristas_final) %>%
   visNodes(font = list(size = 16)) %>%
   visEdges(smooth = FALSE) %>%
   visOptions(
     highlightNearest = TRUE,                         # Resaltar nodos adyacentes
-    selectedBy = list(variable = "label"),           # Selección por sigla
-    nodesIdSelection = TRUE                          # Buscador
+    selectedBy = list(variable = "group"),           # Selección por área (group)
+    nodesIdSelection = TRUE                          # Buscador por sigla
   ) %>%
-  visLegend() %>%
-  visGroups(groupname = unique(nodos_vis$group)) %>%
+  visGroups(groupname = "group") %>%   # Usar 'group' para agrupar por área
+  visLegend() %>%  
   visInteraction(navigationButtons = TRUE)           # Pan y Zoom
 
+
 ```
+
+## 3. Conclusión
+En resumen, la visualización interactiva de los cursos y sus relaciones ofrece una forma clara y eficiente de explorar el plan de estudios de la carrera de **Ingeniería en Computadores**. Las herramientas interactivas permiten a los estudiantes **navegar**, **seleccionar** y **analizar** los cursos de manera dinámica y con una gran flexibilidad. Esta visualización no solo mejora la comprensión del flujo de la carrera, sino que también facilita la toma de decisiones informadas sobre qué cursos tomar, cuándo tomarlos y cómo se interrelacionan entre sí. Además, la capacidad de filtrar y seleccionar cursos según el área disciplinaria facilita aún más la planificación académica y el enfoque en áreas de interés particular.
+
+Esta herramienta también es útil para los docentes y administradores académicos, ya que les permite identificar posibles **problemas en el diseño curricular** y tomar decisiones para mejorar la estructura y la oferta de cursos en el futuro. En definitiva, esta visualización es una herramienta valiosa que no solo mejora la **experiencia educativa**, sino que también optimiza la **planificación académica** para los estudiantes de Ingeniería en Computadores.
+
+------------------------------------------------------------------------
