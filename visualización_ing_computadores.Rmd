@@ -78,7 +78,10 @@ aristas_final <- bind_rows(dirigidas, correquisitos)
 nodos_vis <- nodos %>%
   mutate(
     label = nombre,  # Mostrar el nombre del curso como label
-    title = paste(label, "-", sigla),  # Título con el nombre y sigla
+    title = paste("Código: ", sigla, "<br>",   # Título con la información completa
+                  "Nombre: ", nombre, "<br>",
+                  "Créditos: ", creditos, "<br>",
+                  "Horas: ", horas, "<br>"),  # Título con el nombre y sigla
     value = horas,                # Tamaño proporcional a la cantidad de horas
     group = area,                 # Grupo por área disciplinaria
     shape = ifelse(creditos >= 4, "box", "ellipse")  # Forma según créditos
